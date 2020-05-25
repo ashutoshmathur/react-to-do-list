@@ -68,3 +68,7 @@
   cursor: pointer;
   margin-right: 10px;
 }
+
+.to-do-list-component {
+  padding: 20px;
+}

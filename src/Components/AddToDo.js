@@ -10,9 +10,7 @@ export default function AddToDo(props) {
             <textarea className='add-todo-component-field' placeholder='Add your ToDo here' value={todoText} onChange={(e) => {
                 setTodoText(e.target.value);
             }} />
-            <button className='add-todo-component-add-btn' onClick={() => {
-                console.log('add btn click   ', todoText);
-            }} >Add</button>
+            <button className='add-todo-component-add-btn' onClick={() => props.addToDo(todoText)} >Add</button>
         </div>
     );
 }
