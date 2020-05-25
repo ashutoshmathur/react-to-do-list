@@ -8,14 +8,22 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      date: new Date(),
       showAddPopup: false,
-      toDos: []
+      toDos: [],
+      title: 'Hi! This is my first App'
     };
+    console.log("constructor");
+  }
+
+  componentDidMount() {
+    console.log("componentDidMount");
   }
 
   addToDo = (toDo) => {
     console.log('addTodo, ', toDo);
+    // server request
+    //server request response
+    // if 200
     this.setState({
       toDos: [...this.state.toDos, { 
         todoText: toDo,
@@ -23,6 +31,9 @@ class App extends React.Component {
       }],
       showAddPopup: false
     });
+
+    //if 500 internal server error
+
   }
 
   showAddTodoPopup = (val) => {
@@ -32,10 +43,13 @@ class App extends React.Component {
   }
 
   render() {
+
+    console.log("render");
+    console.log('toDos array: ', this.state.toDos);
     return (
       <div>
         <header className='app-header'>
-          <p className='title'>Hi! This is my first App</p>
+          <p className='title'>{this.state.title}</p>
           <button className='add-todo-btn' value='true' onClick={this.showAddTodoPopup}>Add ToDo</button>
         </header>
         <div className='main-container'>
